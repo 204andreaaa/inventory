@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::table('users', function (Blueprint $table) {
-    $table->string('role')->default('user')->after('password');
-});
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('jenis_kelamin', 20)
+                  ->default('null')   // aman untuk data lama
+                  ->after('role');    // hanya berlaku di MySQL/MariaDB
+        });
     }
 
     /**
